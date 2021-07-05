@@ -5,8 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TicketApp.Models;
+
 namespace TicketApp.Controllers
-{  //home controller
+{  //home controller 
     public class HomeController : Controller
     {
         private TicketContext context;
