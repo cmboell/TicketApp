@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<Ticket>
 @{
-    string Overdue(Ticket task) => task.Overdue ? "bg-warning" : "";
+    string Overdue(Ticket ticket) => ticket.Overdue ? "bg-warning" : "";
 }
 <!--homepage view-->
 <div class="row">
@@ -41,9 +41,11 @@
         <table class="table table-bordered table-striped mt-2">
             <thead>
                 <tr>
+                    <th>Name</th>
                     <th>Description</th>
-                    <th>Category</th>
-                    <th>Due Date</th>
+                    <th>Sprint #</th>
+                    <th>Deadline</th>
+                    <th>P.V.</th>
                     <th>Status</th>
                     <th class="w-25"></th>
                 </tr>
@@ -53,9 +55,11 @@
                 {
                     string overdue = Overdue(ticket);
                     <tr>
+                        <td>@ticket.TicketName</td>
                         <td>@ticket.Description</td>
                         <td>@ticket.Sprint.Name</td>
                         <td class="@overdue">@ticket.Deadline?.ToShortDateString()</td>
+                        <td>@ticket.PointValue</td>
                         <td class="@overdue">@ticket.Status.Name</td>
                         <td>
                             <form asp-action="Edit" method="post"

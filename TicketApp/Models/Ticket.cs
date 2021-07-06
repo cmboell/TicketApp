@@ -32,6 +32,8 @@ namespace TicketApp.Models
         public Status Status { get; set; }
 
         public bool Overdue =>
-            StatusId == "open" && Deadline < DateTime.Today;
+            StatusId == "t" && Deadline<DateTime.Today|| StatusId == "i"  && Deadline < DateTime.Today || StatusId == "qa" && Deadline < DateTime.Today;
+        //checks to see if ticket is overdue
+
     }
 }

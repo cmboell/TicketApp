@@ -43,8 +43,8 @@ namespace TicketApp.Controllers
                 else if (filters.IsToday)
                     query = query.Where(t => t.Deadline == today);
             }
-            var tasks = query.OrderBy(t => t.Deadline).ToList();
-            return View(tasks);
+            var tickets = query.OrderBy(t => t.Deadline).ToList();
+            return View(tickets);
         }
 
         public IActionResult Add()
@@ -55,11 +55,11 @@ namespace TicketApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add(Ticket task)
+        public IActionResult Add(Ticket ticket)
         {
             if (ModelState.IsValid)
             {
-                context.Tickets.Add(task);
+                context.Tickets.Add(ticket);
                 context.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -67,7 +67,7 @@ namespace TicketApp.Controllers
             {
                 ViewBag.Sprints = context.Sprints.ToList();
                 ViewBag.Statuses = context.Statuses.ToList();
-                return View(task);
+                return View(ticket);
             }
         }
 
