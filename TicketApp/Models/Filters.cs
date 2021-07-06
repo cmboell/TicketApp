@@ -20,7 +20,7 @@ namespace TicketApp.Models
         public string Due { get; }
         public string StatusId { get; }
 
-        public bool HasCategory => SprintId.ToLower() != "all";
+        public bool HasSprint => SprintId.ToLower() != "all";
         public bool HasDue => Due.ToLower() != "all";
         public bool HasStatus => StatusId.ToLower() != "all";
 

@@ -25,7 +25,7 @@ namespace TicketApp.Controllers
             // get Ticket objects from database based on current filters
             IQueryable<Ticket> query = context.Tickets
                 .Include(t => t.Sprint).Include(t => t.Status);
-              if (filters.HasCategory)
+              if (filters.HasSprint)
             {
                 query = query.Where(t => t.SprintId == filters.SprintId);
             }
