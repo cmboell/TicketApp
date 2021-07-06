@@ -77,7 +77,7 @@ namespace TicketApp.Controllers
             string id = string.Join('-', filter);
             return RedirectToAction("Index", new { ID = id });
         }
-
+        
         [HttpPost]
         public IActionResult Edit([FromRoute] string id, Ticket selected)
         {
