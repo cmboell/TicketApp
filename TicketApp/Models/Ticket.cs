@@ -11,18 +11,21 @@ namespace TicketApp.Models
         //attributes
         public int TicketId { get; set; }
 
-        [Required(ErrorMessage = "Please enter the name of your ticket.")]
+        [Required(ErrorMessage = "Please enter the name of your ticket.")]//makes it required/custom error message
+        [StringLength(25)] //makes it so string length can only be 25 characters
+        [RegularExpression("^[a-zA-Z0-9]+$", ErrorMessage = "Name cannot contain special characters")]//regex pattern that only allows upper and lower case letter
         public string TicketName { get; set; }
 
-        [Required(ErrorMessage = "Please enter a ticket description.")]
+        [Required(ErrorMessage = "Please enter a ticket description.")]//makes it required/custom error message
+        [StringLength(55)]//sets length of characters that can be entered
         public string Description { get; set; }
 
-        [Required(ErrorMessage = "Please enter point value")]
-        [Range(1, 10, ErrorMessage = "Point value must be between 1 - 10")]
-        public int PointValue { get; set; }
-        [Required(ErrorMessage = "Please enter a deadline.")]
+        [Required(ErrorMessage = "Please enter point value")]//makes it required/custom error message
+        [Range(1, 10, ErrorMessage = "Point value must be between 1 - 10")]//sets a range that number has to be in
+        public int? PointValue { get; set; }
+        [Required(ErrorMessage = "Please enter a deadline.")]//makes it required/custom error message
+        [Range(typeof(DateTime),"1/1/2000","12/31/2099",ErrorMessage ="Deadline must be after 1/1/2000 and cannot exceed 12/31/2099")]//sets date range
         public DateTime? Deadline { get; set; }
-
         [Required(ErrorMessage = "Please enter a sprint number for your ticket.")]
         public string SprintId { get; set; }
         public Sprint Sprint { get; set; }

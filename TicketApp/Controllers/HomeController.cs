@@ -67,6 +67,7 @@ namespace TicketApp.Controllers
             {
                 ViewBag.Sprints = context.Sprints.ToList();
                 ViewBag.Statuses = context.Statuses.ToList();
+                ModelState.AddModelError("", "Please correct all errors.");//error message
                 return View(ticket);
             }
         }

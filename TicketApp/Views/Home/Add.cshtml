@@ -2,16 +2,19 @@
 
 <h2>New Ticket</h2>
 <!--add view-->
-<div asp-validation-summary="All" class="text-danger"></div>
+<div asp-validation-summary="ModelOnly" class="text-danger"><!--displays the model error message-->
+</div>
 
 <form asp-action="Add" method="post">
     <div class="form-group">
         <label asp-for="TicketName">Ticket Name:</label>
         <input type="text" asp-for="TicketName" class="form-control">
+        <span asp-validation-for="TicketName" class="text-danger"></span>
     </div>
     <div class="form-group">
         <label asp-for="Description">Description:</label>
         <input type="text" asp-for="Description" class="form-control">
+        <span asp-validation-for="Description" class="text-danger"></span>
     </div>
 
     <div class="form-group">
@@ -20,15 +23,18 @@
                 asp-items="@(new SelectList(ViewBag.Sprints, "SprintId", "Name"))">
             <option value=""></option>
         </select>
+        <span asp-validation-for="SprintId" class="text-danger"></span>
     </div>
 
     <div class="form-group">
         <label asp-for="Deadline">Deadline:</label>
         <input type="text" asp-for="Deadline" class="form-control">
+        <span asp-validation-for="Deadline" class="text-danger"></span><!--shows error message underneath input box-->
     </div>
     <div class="form-group">
         <label asp-for="PointValue">Point Value:</label>
         <input type="text" asp-for="PointValue" class="form-control">
+        <span asp-validation-for="PointValue" class="text-danger"></span>
     </div>
     <div class="form-group">
         <label asp-for="StatusId">Status:</label>
@@ -36,6 +42,7 @@
                 asp-items="@(new SelectList(ViewBag.Statuses, "StatusId", "Name"))">
             <option value=""></option>
         </select>
+        <span asp-validation-for="StatusId" class="text-danger"></span>
     </div>
 
     <button type="submit" class="btn btn-primary">Add</button>
