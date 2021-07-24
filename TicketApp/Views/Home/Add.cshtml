@@ -41,6 +41,7 @@
         <select asp-for="StatusId" class="form-control"
                 asp-items="@(new SelectList(ViewBag.Statuses, "StatusId", "Name"))">
             <option value="">Select A Status</option>
+            <vc:status-view-component></vc:status-view-component>
         </select>
         <span asp-validation-for="StatusId" class="text-danger"></span>
         
