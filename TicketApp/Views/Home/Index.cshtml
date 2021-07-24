@@ -30,7 +30,7 @@
                     <option value="all">All</option>
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary">Filter</button>
+            <button type="submit">Filter</button>
             <a asp-action="Index" asp-route-id="" class="btn btn-primary">Clear</a>
         </form>
     </div>
@@ -71,12 +71,12 @@
 
                                 <button type="submit"
                                         name="@nameof(Ticket.StatusId)" value="d"
-                                        class="btn btn-primary btn-sm">
+                                        >
                                     Completed
                                 </button>
 
                                 <button type="submit"
-                                        class="btn btn-primary btn-sm">
+                                        >
                                     Delete
                                 </button>
                             </form>
