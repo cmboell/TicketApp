@@ -10,7 +10,7 @@ using TicketApp.Models;
 namespace TicketApp.Migrations
 {
     [DbContext(typeof(TicketContext))]
-    [Migration("20210705230823_initial")]
+    [Migration("20210724222149_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -109,9 +109,11 @@ namespace TicketApp.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(55)
+                        .HasColumnType("nvarchar(55)");
 
-                    b.Property<int>("PointValue")
+                    b.Property<int?>("PointValue")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("SprintId")
@@ -124,7 +126,8 @@ namespace TicketApp.Migrations
 
                     b.Property<string>("TicketName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(25)
+                        .HasColumnType("nvarchar(25)");
 
                     b.HasKey("TicketId");
 

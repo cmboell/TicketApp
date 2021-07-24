@@ -107,9 +107,11 @@ namespace TicketApp.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(55)
+                        .HasColumnType("nvarchar(55)");
 
-                    b.Property<int>("PointValue")
+                    b.Property<int?>("PointValue")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("SprintId")
@@ -122,7 +124,8 @@ namespace TicketApp.Migrations
 
                     b.Property<string>("TicketName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(25)
+                        .HasColumnType("nvarchar(25)");
 
                     b.HasKey("TicketId");
 

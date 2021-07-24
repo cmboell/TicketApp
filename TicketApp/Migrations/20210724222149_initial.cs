@@ -37,8 +37,8 @@ namespace TicketApp.Migrations
                 {
                     TicketId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    TicketName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TicketName = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(55)", maxLength: 55, nullable: false),
                     PointValue = table.Column<int>(type: "int", nullable: false),
                     Deadline = table.Column<DateTime>(type: "datetime2", nullable: false),
                     SprintId = table.Column<string>(type: "nvarchar(450)", nullable: false),
